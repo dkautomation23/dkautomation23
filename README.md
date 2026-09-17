@@ -21,7 +21,7 @@ claims a number, the script that produced it is in the repository.
 
 | Repo | What it does |
 | --- | --- |
-| [webhook-replay](https://github.com/dkautomation23/webhook-replay) | Record the webhooks a provider sends you once, then replay them at your own code — re-signed for Meta, GitHub, Shopify or Stripe, so the receiver runs its real verification instead of having it switched off for the debugging session. |
+| [webhook-rewind](https://github.com/dkautomation23/webhook-rewind) | Record the webhooks a provider sends you once, then replay them at your own code — re-signed for Meta, GitHub, Shopify or Stripe, so the receiver runs its real verification instead of having it switched off for the debugging session. |
 | [api-drift](https://github.com/dkautomation23/api-drift) | Records the shape of a JSON API and reports when it changes: removed fields, changed types, values that can now be null. Exits non-zero in CI, so a partner's silent rename stops being something you find out about two weeks later. |
 
 ### Business automation — Python
@@ -63,5 +63,27 @@ claims a number, the script that produced it is in the repository.
 Python · Rust · TypeScript/Node · FastAPI · SQLite/PostgreSQL · n8n ·
 Meta Graph API · Shopify · Google Sheets · GitHub Actions · Docker
 
-Based in Bulgaria, working with clients across the EU, UK and US.
-Open an issue on any repository, or reach me through my GitHub profile.
+### Work with me
+
+The tools above exist because the same problems keep arriving. If one of them
+sounds like your week, I take on the work behind it:
+
+- **Something breaks and nobody notices.** A workflow that stopped running, an
+  API that changed shape, a feed that has been half-empty for a fortnight —
+  monitoring that names the failure instead of a dashboard nobody opens.
+- **Two systems that will not agree.** Webhooks into a CRM, a bank statement
+  against invoices, a catalogue against a supplier feed. Signature verification,
+  de-duplication, retries and the 3am cases, not the happy path.
+- **Data that has to be right.** Migration checks, reconciliation, audits of a
+  catalogue, a domain's mail or a site's crawlability, with the numbers
+  reproducible rather than asserted.
+- **Rescue work.** An automation someone else built and left. I will read it and
+  tell you honestly whether it is worth repairing.
+
+**hello@dkautomation.dev** — tell me what breaks today and what it costs you.
+You get back an approach and a number, or an honest "this is not my job" and who
+to ask instead. Based in Bulgaria, working with clients across the EU, UK and US.
+
+More at [dkautomation23.github.io](https://dkautomation23.github.io) ·
+[security policy](https://github.com/dkautomation23/.github/blob/main/.github/SECURITY.md) ·
+everything MIT licensed.

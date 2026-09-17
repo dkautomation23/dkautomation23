@@ -5,7 +5,8 @@ catalogue and deliverability audits, webhook-to-CRM integrations, and the
 monitoring that tells you an automation stopped working before a customer does.
 
 Every repository below runs on a clean machine with one command, has its own
-tests in CI, and documents what it deliberately does **not** do.
+tests in CI, and documents what it deliberately does **not** do. Where a README
+claims a number, the script that produced it is in the repository.
 
 ### Command-line tools — Rust
 
@@ -15,6 +16,13 @@ tests in CI, and documents what it deliberately does **not** do.
 | [leakscan](https://github.com/dkautomation23/leakscan) | Offline check of what leaves with a file: tracked changes with the deleted text still readable, hidden worksheets, PDF attachments, GPS in photos, validated card/IBAN data. |
 | [imgdupe](https://github.com/dkautomation23/imgdupe) | Perceptual-hash duplicate finder. Complete-linkage grouping so unrelated pictures never chain together; writes a delete script instead of deleting. |
 | [linkscan](https://github.com/dkautomation23/linkscan) | Crawls a site and reports the links that are genuinely broken, keeping bot protection and timeouts out of the "broken" column. |
+
+### Integration tooling — TypeScript
+
+| Repo | What it does |
+| --- | --- |
+| [webhook-replay](https://github.com/dkautomation23/webhook-replay) | Record the webhooks a provider sends you once, then replay them at your own code — re-signed for Meta, GitHub, Shopify or Stripe, so the receiver runs its real verification instead of having it switched off for the debugging session. |
+| [api-drift](https://github.com/dkautomation23/api-drift) | Records the shape of a JSON API and reports when it changes: removed fields, changed types, values that can now be null. Exits non-zero in CI, so a partner's silent rename stops being something you find out about two weeks later. |
 
 ### Business automation — Python
 
@@ -52,8 +60,8 @@ tests in CI, and documents what it deliberately does **not** do.
 
 ### Working with
 
-Python · Rust · FastAPI · SQLite/PostgreSQL · n8n · Meta Graph API · Shopify ·
-Google Sheets · GitHub Actions · Docker
+Python · Rust · TypeScript/Node · FastAPI · SQLite/PostgreSQL · n8n ·
+Meta Graph API · Shopify · Google Sheets · GitHub Actions · Docker
 
 Based in Bulgaria, working with clients across the EU, UK and US.
 Open an issue on any repository, or reach me through my GitHub profile.

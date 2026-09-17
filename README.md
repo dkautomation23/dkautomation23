@@ -22,6 +22,7 @@ claims a number, the script that produced it is in the repository.
 | Repo | What it does |
 | --- | --- |
 | [webhook-rewind](https://github.com/dkautomation23/webhook-rewind) | Record the webhooks a provider sends you once, then replay them at your own code — re-signed for Meta, GitHub, Shopify or Stripe, so the receiver runs its real verification instead of having it switched off for the debugging session. |
+| [cra-report](https://github.com/dkautomation23/cra-report) | Since 11 September 2026 a manufacturer placing a product on the EU market has 24 hours to notify ENISA of an *actively exploited* vulnerability in it. This joins OSV with the CISA KEV catalogue to say which of a hundred advisories actually starts that clock, and drafts the Article 14 notification for the ones that do. |
 | [api-drift](https://github.com/dkautomation23/api-drift) | Records the shape of a JSON API and reports when it changes: removed fields, changed types, values that can now be null. Exits non-zero in CI, so a partner's silent rename stops being something you find out about two weeks later. |
 
 ### Business automation — Python

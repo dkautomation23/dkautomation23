@@ -8,6 +8,18 @@ Every repository below runs on a clean machine with one command, has its own
 tests in CI, and documents what it deliberately does **not** do. Where a README
 claims a number, the script that produced it is in the repository.
 
+### Open data
+
+**[What AI shopping agents actually see](https://dkautomation23.github.io/ucp-survey.html)** —
+a census of 5,356 live Shopify storefronts, 18 September 2026. Google and Shopify
+published the Universal Commerce Protocol so an agent can read a shop and buy from
+it; nobody had published a count of how many shops actually speak it. 98.9% do, all
+on the current release, none with a blocker — and 47.5% will not let an agent sign
+the shopper into their own account, which turns a returning customer into an
+anonymous visitor. The domain list, both scripts and the raw per-domain results are
+in [ucp-audit/survey](https://github.com/dkautomation23/ucp-audit/tree/main/survey),
+so the measurement can be repeated rather than believed.
+
 ### Command-line tools — Rust
 
 | Repo | What it does |

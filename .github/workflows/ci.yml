@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # The profile README is the first page anyone sees, and it is a page of
+    # links to other repositories. Those get renamed. Weekly is often enough to
+    # catch it before a visitor does.
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Every link in the profile resolves
+        run: python .github/check_links.py README.md

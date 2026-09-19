@@ -1,0 +1,10 @@
+name: Something on the profile is wrong
+description: A dead link, or a description that no longer matches the tool
+labels: ["bug"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong, and what should it say
+    validations:
+      required: true

@@ -1,0 +1,10 @@
+name: Suggest a change to the profile
+description: Something worth adding or reordering here
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you change?
+    validations:
+      required: true

@@ -10,6 +10,14 @@ claims a number, the script that produced it is in the repository.
 
 ### Open data
 
+**[Half the security.txt files at the top of the web are invalid](https://dkautomation23.github.io/security-txt-survey.html)** —
+500 most visited sites, 18 September 2026. A `security.txt` tells a researcher
+where to report a hole; RFC 9116 makes its `Expires` field mandatory and treats
+an expired file as no file at all. Of the 158 that exist, 92 have no `Expires`
+and 6 have expired — 62% are not valid, and nothing anywhere warns when that
+happens. Raw results in
+[well-known-audit/survey](https://github.com/dkautomation23/well-known-audit/tree/main/survey).
+
 **[What AI shopping agents actually see](https://dkautomation23.github.io/ucp-survey.html)** —
 a census of 5,356 live Shopify storefronts, 18 September 2026. Google and Shopify
 published the Universal Commerce Protocol so an agent can read a shop and buy from
@@ -34,6 +42,7 @@ so the measurement can be repeated rather than believed.
 | Repo | What it does |
 | --- | --- |
 | [webhook-rewind](https://github.com/dkautomation23/webhook-rewind) | Record the webhooks a provider sends you once, then replay them at your own code — re-signed for Meta, GitHub, Shopify or Stripe, so the receiver runs its real verification instead of having it switched off for the debugging session. |
+| [well-known-audit](https://github.com/dkautomation23/well-known-audit) | A site publishes a dozen small files at its root — `security.txt`, `robots.txt`, `llms.txt`, `assetlinks.json`, `mta-sts.txt` — each checked by a different tool or by nobody. This reads all of them in one run and says which are missing, malformed, or quietly expired: RFC 9116 gives `security.txt` an `Expires` date, and past it the file is no longer valid. |
 | [ucp-audit](https://github.com/dkautomation23/ucp-audit) | Google and Shopify's Universal Commerce Protocol lets AI agents shop: every business publishes a profile at `/.well-known/ucp` and agents read it to decide what they can do. The failure mode is silence — offer checkout without declaring a searchable catalogue and no agent ever surfaces your products. This reads the profile the way an agent does and says what one would conclude. |
 | [cra-report](https://github.com/dkautomation23/cra-report) | Since 11 September 2026 a manufacturer placing a product on the EU market has 24 hours to notify ENISA of an *actively exploited* vulnerability in it. This joins OSV with the CISA KEV catalogue to say which of a hundred advisories actually starts that clock, and drafts the Article 14 notification for the ones that do. |
 | [api-drift](https://github.com/dkautomation23/api-drift) | Records the shape of a JSON API and reports when it changes: removed fields, changed types, values that can now be null. Exits non-zero in CI, so a partner's silent rename stops being something you find out about two weeks later. |

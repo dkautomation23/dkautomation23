@@ -116,6 +116,7 @@ so the measurement can be repeated rather than believed.
 
 | Repo | What it does |
 | --- | --- |
+| [ci-eol](https://github.com/dkautomation23/ci-eol) | A workflow keeps running right up to the day it does not: the runner image is retired, the language version stops getting security fixes, the action's major is switched off - each on a date published months earlier, none of which warns you first. GitHub code search counts 1,335,296 files on `actions/checkout@v3` and 230,400 on `ubuntu-22.04`, which left support on 17 September 2026. Dependabot moves versions; it does not say what stops working on the eleventh of a month. Run against my own repositories it found Python 3.10 in seventeen of them, forty days out, including its own CI. |
 | [repo-secret-scanner](https://github.com/dkautomation23/repo-secret-scanner) | Dependency-free leaked-secret scanner for pre-commit and CI: API keys, tokens, private keys, JWTs plus an entropy check. Redacted output, non-zero exit on a hit. |
 
 ### Working with

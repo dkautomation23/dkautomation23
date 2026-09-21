@@ -1,14 +1,48 @@
 ## Dmytro Galko
 
-I build the unglamorous tools that businesses run every day: data reconciliation,
-catalogue and deliverability audits, webhook-to-CRM integrations, and the
-monitoring that tells you an automation stopped working before a customer does.
+I measure what AI systems actually do, and build the unglamorous tooling that
+keeps them honest: evals with a control group, red-teaming of what an agent
+reads, multi-provider LLM pipelines that fail loudly instead of quietly, and the
+audits that catch a silent change before a customer does.
 
 Every repository below runs on a clean machine with one command, has its own
 tests in CI, and documents what it deliberately does **not** do. Where a README
-claims a number, the script that produced it is in the repository.
+claims a number, the script that produced it is in the repository — and where a
+number turned out to be wrong, the correction is in the git history rather than
+quietly overwritten.
+
+### AI and agents
+
+| Repo | What it does |
+| --- | --- |
+| [agent-hijack-bench](https://github.com/dkautomation23/agent-hijack-bench) | How often does a model used as an agent obey an instruction planted in a file a website publishes *for it to read*? Four local models, three passes, temperature 0, scored by canary substring so no judge model is involved, with a control case that voids a model's numbers if it emits the canary unprompted. Result: 0% for llama3.1:8b, 25% qwen3:8b, 50% hermes3:8b, 75% gemma3:12b — and not one falls for a blunt "SYSTEM OVERRIDE" while three of four obey the same demand dressed as a routine analytics note. Runs offline on Ollama. |
+| [llm-doc-extractor](https://github.com/dkautomation23/llm-doc-extractor) | Documents to schema-shaped JSON across Anthropic, OpenAI and local Ollama behind one schema. The part that matters is what happens when a model returns something that does not fit: it is caught, reported and retried against the declared shape rather than written downstream. |
+
+### Upstream contributions
+
+- **[mozilla/bedrock#17391](https://github.com/mozilla/bedrock/pull/17391)** — mozilla.org's
+  `security.txt` used field names that predate RFC 9116, so a conforming parser
+  found no `Contact` and no `Expires` and treated the file as invalid: automated
+  vulnerability reporting could not find where to report a bug in a Mozilla
+  property. Found with my own `well-known-audit`, fixed, reviewed and approved by
+  Mozilla's security team.
+- **[jupyter/jupyter.github.io#887](https://github.com/jupyter/jupyter.github.io/pull/887)** —
+  the same audit, the missing mandatory `Expires` field.
+- **[Universal-Commerce-Protocol/ucp#840](https://github.com/Universal-Commerce-Protocol/ucp/pull/840)** —
+  the spec's own example validator crashed on a UTF-8 file and on a missing
+  binary; fixed with a clear failure message instead of a traceback.
 
 ### Open data
+
+**[One in ten sites that publish a guide for AI also ban the readers](https://dkautomation23.github.io/llms-txt-conformance.html)** —
+Tranco top 1,500, 19 September 2026. How many sites publish an `llms.txt` has
+been counted several times this year; nobody had asked whether the files work.
+Of the 123 that exist, 13 belong to sites whose `robots.txt` bans by name a
+crawler that would read them, and 13.5% point at least one link at a page that
+is gone. Unreachable hosts, hosts that refused, and hosts answering 200 to a
+path that cannot exist are each counted separately and kept out of every rate.
+Raw CSV, domain list and both scripts in
+[well-known-audit/survey](https://github.com/dkautomation23/well-known-audit/tree/main/survey).
 
 **[Half the security.txt files at the top of the web are invalid](https://dkautomation23.github.io/security-txt-survey.html)** —
 500 most visited sites, 18 September 2026. A `security.txt` tells a researcher

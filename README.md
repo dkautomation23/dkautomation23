@@ -32,7 +32,8 @@ quietly overwritten.
   the same audit, the missing mandatory `Expires` field.
 - **[Universal-Commerce-Protocol/ucp#840](https://github.com/Universal-Commerce-Protocol/ucp/pull/840)** —
   the spec's own example validator crashed on a UTF-8 file and on a missing
-  binary; fixed with a clear failure message instead of a traceback.
+  binary; fixed with a clear failure message instead of a traceback. Merged by
+  Google and Shopify's UCP maintainers on 21 September 2026.
 
 ### Open data
 

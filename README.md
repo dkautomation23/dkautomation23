@@ -15,7 +15,7 @@ quietly overwritten.
 
 | Repo | What it does |
 | --- | --- |
-| [model-eol](https://github.com/dkautomation23/model-eol) | On 23 October 2026 OpenAI retires eighteen model identifiers in one day, five days after four more go on 28 September. GitHub code search puts 96,640 files on `gpt-4-0613` alone and 86,528 on `gpt-4-turbo` in Python - each a hardcoded string that starts failing on a published date with no warning first. This answers what comes before "how do I migrate": what of mine dies, when, and what replaces it. One run, no key, exit 1 for CI. A retired id is a prefix of live ones, so matching is bounded and longest-first, and the suite asserts that none of ten live look-alikes is ever reported. |
+| [model-eol](https://github.com/dkautomation23/model-eol) | On 23 October 2026 a batch of OpenAI identifiers retires in one day - twenty-nine of them in this tool's table, counting every section of the deprecation page. Four more went twenty-five days earlier, on 28 September. GitHub code search puts 96,640 files on `gpt-4-0613` alone and 86,528 on `gpt-4-turbo` in Python - each a hardcoded string that starts failing on a published date with no warning first. This answers what comes before "how do I migrate": what of mine dies, when, and what replaces it. One run, no key, exit 1 for CI. A retired id is a prefix of live ones, so matching is bounded and longest-first, and the suite asserts that none of ten live look-alikes is ever reported. |
 | [agent-hijack-bench](https://github.com/dkautomation23/agent-hijack-bench) | How often does a model used as an agent obey an instruction planted in a file a website publishes *for it to read*? Nineteen local models, temperature 0, scored by canary substring so no judge model is involved, with a control case that voids a model's numbers if it emits the canary unprompted. Six models refuse everything and two fall for three families out of four. The data-exfiltration framing beats twelve of the thirteen hijackable models every single time, the blunt "SYSTEM OVERRIDE" spoof works on exactly one, parameter count predicts nothing, and a published mitigation helps ten models while making two measurably worse. Runs offline on Ollama. |
 | [embed-drift](https://github.com/dkautomation23/embed-drift) | When a provider swaps the embedding model under a live vector index, nothing raises an error - the nearest neighbours are simply wrong from then on, and the blame lands on the language model rather than the retrieval step. Pins a fingerprint of twelve frozen probes and reports two numbers: vector drift catches any change including a harmless renormalisation, while drift in the geometry between probes only moves when retrieval will actually return different rows. A baseline on all-minilm against a different model of the same 384 dimensions collapses the first number to -0.0052 and the second to 0.349. |
 | [llm-doc-extractor](https://github.com/dkautomation23/llm-doc-extractor) | Documents to schema-shaped JSON across Anthropic, OpenAI and local Ollama behind one schema. The part that matters is what happens when a model returns something that does not fit: it is caught, reported and retried against the declared shape rather than written downstream. |
@@ -28,8 +28,9 @@ quietly overwritten.
   vulnerability reporting could not find where to report a bug in a Mozilla
   property. Found with my own `well-known-audit`, fixed, reviewed and approved by
   Mozilla's security team.
-- **[jupyter/jupyter.github.io#887](https://github.com/jupyter/jupyter.github.io/pull/887)** —
-  the same audit, the missing mandatory `Expires` field.
+- **[jupyter/jupyter.github.io#887](https://github.com/jupyter/jupyter.github.io/pull/887)**
+  — *open, awaiting review* — the same audit, the missing mandatory `Expires`
+  field.
 - **[Universal-Commerce-Protocol/ucp#840](https://github.com/Universal-Commerce-Protocol/ucp/pull/840)** —
   the spec's own example validator crashed on a UTF-8 file and on a missing
   binary; fixed with a clear failure message instead of a traceback. Merged by
@@ -47,7 +48,7 @@ path that cannot exist are each counted separately and kept out of every rate.
 Raw CSV, domain list and both scripts in
 [well-known-audit/survey](https://github.com/dkautomation23/well-known-audit/tree/main/survey).
 
-**[Half the security.txt files at the top of the web are invalid](https://dkautomation23.github.io/security-txt-survey.html)** —
+**[Nearly two-thirds of the security.txt files at the top of the web are invalid](https://dkautomation23.github.io/security-txt-survey.html)** —
 500 most visited sites, 18 September 2026. A `security.txt` tells a researcher
 where to report a hole; RFC 9116 makes its `Expires` field mandatory and treats
 an expired file as no file at all. Of the 158 that exist, 92 have no `Expires`

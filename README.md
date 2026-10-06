@@ -85,6 +85,13 @@ so the measurement can be repeated rather than believed.
 | [cra-report](https://github.com/dkautomation23/cra-report) | Since 11 September 2026 a manufacturer placing a product on the EU market has 24 hours to notify ENISA of an *actively exploited* vulnerability in it. This joins OSV with the CISA KEV catalogue to say which of a hundred advisories actually starts that clock, and drafts the Article 14 notification for the ones that do. |
 | [api-drift](https://github.com/dkautomation23/api-drift) | Records the shape of a JSON API and reports when it changes: removed fields, changed types, values that can now be null. Exits non-zero in CI, so a partner's silent rename stops being something you find out about two weeks later. |
 
+### Data and analytics
+
+| Repo | What it does |
+| --- | --- |
+| [retail-sales-analytics](https://github.com/dkautomation23/retail-sales-analytics) | One million real retail transactions through a PostgreSQL star schema, 9 data-quality checks and cohort and RFM analysis, with every number in the README regenerated from the data by `check.py`. A Power BI project (TMDL and PBIR, 11 DAX measures), an Excel workbook with live formulas recalculated in Excel, a local Metabase dashboard and an Airflow DAG run once with `airflow dags test`. A significance test says what a retention experiment could and could not detect. Limits are in the README. |
+| [feed-audit-api](https://github.com/dkautomation23/feed-audit-api) | FastAPI + PostgreSQL + Docker service around `feed-to-matrixify`: upload a supplier feed, get back a Shopify import and an audit, with stored runs and an API key. Found by two independent reviews: the upload size limit is enforced before the body is read. |
+
 ### Business automation — Python
 
 | Repo | What it does |
@@ -123,7 +130,8 @@ so the measurement can be repeated rather than believed.
 ### Working with
 
 Python · Rust · TypeScript/Node · FastAPI · SQLite/PostgreSQL · n8n ·
-Meta Graph API · Shopify · Google Sheets · GitHub Actions · Docker
+Meta Graph API · Shopify · Google Sheets · GitHub Actions · Docker ·
+dbt · Power BI · Metabase · Airflow · Excel
 
 ### Work with me
 
@@ -148,4 +156,4 @@ to ask instead. Based in Bulgaria, working with clients across the EU, UK and US
 
 More at [dkautomation23.github.io](https://dkautomation23.github.io) ·
 [security policy](https://github.com/dkautomation23/.github/blob/main/.github/SECURITY.md) ·
-everything MIT licensed.
+everything MIT licensed except freight-quote-drafts (PolyForm Noncommercial 1.0.0).
